@@ -1,0 +1,115 @@
+/* === Sidebar Offcanvas === */
+.offcanvas {
+  background-color: #393E46;
+  color: #DFD0B8;
+}
+
+.offcanvas-header {
+  border-bottom: 1px solid #948979;
+}
+
+#sidebarToggle {
+  color: #DFD0B8;
+  border-color: #948979;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+#sidebarToggle:hover {
+  background-color: #948979;
+  color: #222831;
+  border-color: #948979;
+}
+
+/* Sidebar List */
+.list-group-item {
+  background-color: #393E46;
+  border: 1px solid #222831; /* subtle border */
+  margin-bottom: 5px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.list-group-item a.d-block {
+  color: #DFD0B8;
+  padding: 10px 15px;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.list-group-item:hover {
+  background-color: #7c7265; /* darker hover */
+}
+
+.list-group-item a.d-block:hover {
+  color: #222831;
+}
+
+/* Nested Dropdowns */
+.list-group .collapse {
+  background-color: #222831;
+  border-left: 2px solid #948979;
+  margin-top: 6px;
+}
+
+.list-group .collapse .list-group-item {
+  background-color: #393E46;
+  border: 1px solid #222831; /* subtle border */
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.list-group .collapse .list-group-item a.d-block {
+  padding-left: 30px;
+}
+
+.list-group .collapse .list-group-item:hover {
+  background-color: #7c7265; /* darker hover */
+}
+
+.list-group .collapse .list-group-item a.d-block:hover {
+  color: #222831;
+}
+
+/* Dropdown Arrow */
+.list-group-item a[aria-expanded="false"] .arrow::after {
+  content: '\25BC'; /* ▼ */
+  float: right;
+  transition: transform 0.3s ease;
+}
+
+.list-group-item a[aria-expanded="true"] .arrow::after {
+  content: '\25B2'; /* ▲ */
+  float: right;
+  transition: transform 0.3s ease;
+}
+/* === Navbar === */
+.navbar {
+  background-color: #393E46;
+  color: #DFD0B8;
+}
+
+.navbar .btn-outline-dark {
+  border-color: #948979;
+  color: #DFD0B8;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.navbar .btn-outline-dark:hover {
+  background-color: #948979;
+  color: #222831;
+  border-color: #948979;
+}
+
+.navbar input.form-control {
+  background-color: #222831;
+  border: 1px solid #948979;
+  color: #DFD0B8;
+}
+
+.navbar input.form-control::placeholder {
+  color: #DFD0B8;
+}
+
+.navbar i,
+.navbar img {
+  color: #DFD0B8;
+}
