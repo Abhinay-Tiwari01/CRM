@@ -6,33 +6,33 @@ import java.util.List;
 @Entity
 public class CityEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "City_Id")
-    private int id;
-    @Column(name = "City_Name")
-    private String city;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "city_id")
+    private Integer cityId;
+    @Column(name = "city_name")
+    private String cityName;
 
     @ManyToOne
-    @JoinColumn(name = "State_Id")
+    @JoinColumn(name = "state_code")
     private StateEntity state;
 
     @OneToMany(mappedBy = "city")
     private List<AreaEntity> areaEntityList;
 
-    public int getId() {
-        return id;
+    public int getCityId() {
+        return cityId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
     }
 
-    public String getCity() {
-        return city;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCity(String city) {
-        this.city = city;
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     public StateEntity getState() {

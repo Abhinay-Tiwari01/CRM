@@ -32,7 +32,7 @@ public class DashController {
     public String showCustomerEntry(Model model)
     {
         List<StateEntity> states = stateRepo.findAll();
-        model.addAttribute("state",states);
+        model.addAttribute("state",states);//find all states From state entry
         System.out.println(states);
         model.addAttribute("customer", new CustomerEntryDto());
         return "customerEntry";
@@ -44,25 +44,17 @@ public class DashController {
         return "redirect:/customerEntry";
     }
 
-    @GetMapping("/getCity")
-    @ResponseBody
-    public List<CityEntity> getCities(@RequestParam int stateCode) {
-        return cityRepo.findByStateCode(stateCode);
-    }
 
-    @GetMapping("/getArea")
-    @ResponseBody
-    public List<AreaEntity> getAreas(@RequestParam int cityId) {
-        return areaRepo.findByCityId(cityId);
-    }
 
 
 //    ===================================State City ARea COde===========================================
 
     @GetMapping("/saveCityArea")
     public String showSaveCityArea(Model model){
-        model.addAttribute("state", stateRepo.findAll());
-        model.addAttribute("cityAreaList", cityRepo.findAllWithAreas()); // Join with Area as needed
+        List<StateEntity> stateList = stateRepo.findAll();
+        List<CityEntity> cityAreaList = cityRepo.findAllWithStateAndAreas();
+        model.addAttribute("state", stateList);
+        model.addAttribute("cityAreaList",cityAreaList); // Join with Area as needed
         model.addAttribute("cityArea", new CityAreaDto());
         return "stateCityAreaEntry";
     }
@@ -71,9 +63,9 @@ public class DashController {
         StateEntity state = stateRepo.findById(cityAreaDto.getStateCode()).orElseThrow();
 
         CityEntity city = new CityEntity();
-        city.setCity(cityAreaDto.getCity());
+        city.setCityName(cityAreaDto.getCity());
         city.setState(state);
-        cityRepo.save(city);
+        city=cityRepo.save(city);
 
         AreaEntity areaEntity = new AreaEntity();
         areaEntity.setArea(cityAreaDto.getAreaName());

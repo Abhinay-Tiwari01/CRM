@@ -82,7 +82,7 @@
                 <label for="citySelect" class="form-label">City</label>
                 <select id="citySelect" th:field="*{cityId}" name="city" class="form-select">
                     <option value="">Select City</option>
-                    <option th:each="city : ${city}" th:value="${city.Id}" th:text="${city.city}"></option>
+<!--                    <option th:each="city : ${city}" th:value="${city.cityId}" th:text="${city.cityName}"></option>-->
 
                 </select>
             </div>
@@ -92,7 +92,7 @@
                 <label for="areaSelect" class="form-label">Area</label>
                 <select id="areaSelect" th:field="*{areaId}" name="area" class="form-select">
                     <option value="">Select Area</option>
-                    <option th:each="area : ${area}" th:value="${area.Id}" th:text="${area.area}"></option>
+<!--                    <option th:each="area : ${area}" th:value="${area.areaId}" th:text="${area.area}"></option>-->
 
                 </select>
             </div>
@@ -136,45 +136,44 @@
             dropdown.classList.remove('show');
         }
     });
+const stateSelect = document.getElementById('stateSelect');
+const citySelect = document.getElementById('citySelect');
+const areaSelect = document.getElementById('areaSelect');
 
 
-    const stateSelect = document.getElementById('stateSelect');
-    const citySelect = document.getElementById('citySelect');
-    const areaSelect = document.getElementById('areaSelect');
 
-    stateSelect.addEventListener('change', () => {
-        const stateCode = stateSelect.value;
-        citySelect.innerHTML = '<option value="">Select City</option>';
-        areaSelect.innerHTML = '<option value="">Select Area</option>';
+stateSelect.addEventListener('change', () => {
+  const stateCode = stateSelect.value;
+  citySelect.innerHTML = '<option value="">Select City</option>';
+  areaSelect.innerHTML = '<option value="">Select Area</option>';
 
-        if (stateCode) {
-            fetch(`/getCity?stateCode=${stateCode}`)
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(city => {
-                        const option = new Option(city.name, city.Id);
-                        citySelect.appendChild(option);
-                    });
-                });
-        }
-    });
+  if (stateCode) {
+    fetch(`/api/cities?stateCode=${stateCode}`)
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(city => {
+          const option = new Option(city.cityName, city.cityId);
+          citySelect.appendChild(option);
+        });
+      });
+  }
+});
 
-    citySelect.addEventListener('change', () => {
-        const cityId = citySelect.value;
-        areaSelect.innerHTML = '<option value="">Select Area</option>';
+citySelect.addEventListener('change', () => {
+  const cityId = citySelect.value;
+  areaSelect.innerHTML = '<option value="">Select Area</option>';
 
-        if (cityId) {
-            fetch(`/getArea?cityId=${cityId}`)
-                .then(response => response.json())
-                .then(data => {
-                    data.forEach(area => {
-                        const option = new Option(area.name, area.Id);
-                        areaSelect.appendChild(option);
-                    });
-                });
-        }
-    });
-
+  if (cityId) {
+    fetch(`/api/areas?cityId=${cityId}`)
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(area => {
+          const option = new Option(area.area, area.areaId);
+          areaSelect.appendChild(option);
+        });
+      });
+  }
+});
 
 
     // Website live preview

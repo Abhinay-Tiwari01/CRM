@@ -22,6 +22,8 @@ public class CustomerMapper {
 
     public static CustomerEntryDto toCustomerEntryDto(CustomerEntity customerEntity){
         CustomerEntryDto customerEntryDto = getCustomerEntryDto(customerEntity);
+
+        //here add ids and down there changes ids to names
         return customerEntryDto;
     }
 
@@ -32,8 +34,8 @@ public class CustomerMapper {
         customerEntryDto.setMobile(customerEntity.getMobile());
         customerEntryDto.setTitle(customerEntity.getTitle());
         customerEntryDto.setStateCode(customerEntity.getCity().getState().getCode());
-        customerEntryDto.setCityId(customerEntity.getCity().getId());
-        customerEntryDto.setAreaId(customerEntity.getArea().getId());
+        customerEntryDto.setCityId(customerEntity.getCity().getCityId());
+        customerEntryDto.setAreaId(customerEntity.getArea().getAreaId());
         return customerEntryDto;
     }
 }

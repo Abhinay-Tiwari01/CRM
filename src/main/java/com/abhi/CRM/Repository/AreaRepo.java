@@ -7,6 +7,6 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 @Repository
 public interface AreaRepo extends JpaRepository<AreaEntity,Integer> {
-    List<AreaEntity> findByCityId(int cityId);
+    List<AreaEntity> findByCity_CityId(Integer cityId);
 
 }

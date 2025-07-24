@@ -61,9 +61,10 @@
     </thead>
     <tbody>
     <tr th:each="entry : ${cityAreaList}">
-      <td th:text="${entry.id}"></td>
-      <td th:text="${entry.state.state}"></td>
-      <td th:text="${entry.city}"></td>
+      <td th:text="${entry.cityId}"></td>
+<!--      <td th:text="${entry.state.code}"></td>-->
+      <td th:text="${entry.state != null ? entry.state.state : 'N/A'}"></td>
+      <td th:text="${entry.cityName}"></td>
       <td> <span th:each="area : ${entry.areaEntityList}" th:text="${area.area}"></span></td>
 <!--      <td>-->
 <!--        <a th:href="@{'/edit/' + ${entry.id}}" class="btn btn-sm btn-warning">Edit</a>-->

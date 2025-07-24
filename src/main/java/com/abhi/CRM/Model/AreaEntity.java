@@ -4,22 +4,27 @@ import jakarta.persistence.*;
 @Entity
 public class AreaEntity {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+//    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Area_Id")
-    private int id;
+    private int areaId;
     @Column(name = "Area_Name")
     private String area;
 
-    @ManyToOne
-    @JoinColumn(name = "City_Id")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "city_id")
     private CityEntity city;
 
-    public int getId() {
-        return id;
+//    @ManyToOne
+//    @JoinColumn(name = "state_code")
+//    private StateEntity state;
+
+
+    public int getAreaId() {
+        return areaId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAreaId(int areaId) {
+        this.areaId = areaId;
     }
 
     public String getArea() {
@@ -37,4 +42,12 @@ public class AreaEntity {
     public void setCity(CityEntity city) {
         this.city = city;
     }
+
+//    public StateEntity getState() {
+//        return state;
+//    }
+//
+//    public void setState(StateEntity state) {
+//        this.state = state;
+//    }
 }

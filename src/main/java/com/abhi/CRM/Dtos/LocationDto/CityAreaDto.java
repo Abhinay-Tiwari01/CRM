@@ -5,6 +5,10 @@ public class CityAreaDto {
     private String city;
     private String areaName;
 
+    public CityAreaDto() {
+
+    }
+
     public Integer getStateCode() {
         return stateCode;
     }
@@ -27,5 +31,11 @@ public class CityAreaDto {
 
     public void setAreaName(String areaName) {
         this.areaName = areaName;
+    }
+
+    public CityAreaDto(Integer stateCode, String city) {
+        this.stateCode = stateCode;
+        this.city = city;
+
     }
 }

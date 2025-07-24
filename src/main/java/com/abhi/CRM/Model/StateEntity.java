@@ -15,6 +15,9 @@ public class StateEntity {
     @OneToMany(mappedBy = "state")
     private List<CityEntity> cityEntityList;
 
+//    @OneToMany(mappedBy = "state")
+//    private List<AreaEntity> areaEntityList;
+
     public int getCode() {
         return code;
     }
@@ -38,4 +41,12 @@ public class StateEntity {
     public void setCityEntityList(List<CityEntity> cityEntityList) {
         this.cityEntityList = cityEntityList;
     }
+
+//    public List<AreaEntity> getAreaEntityList() {
+//        return areaEntityList;
+//    }
+//
+//    public void setAreaEntityList(List<AreaEntity> areaEntityList) {
+//        this.areaEntityList = areaEntityList;
+//    }
 }
