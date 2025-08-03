@@ -1,11 +1,17 @@
 package com.abhi.CRM.Mapper;
 
 import com.abhi.CRM.Dtos.CustomerDto.CustomerEntryDto;
+import com.abhi.CRM.Dtos.CustomerDto.CustomerResponseDto;
 import com.abhi.CRM.Model.CustomerEntity;
 
 public class CustomerMapper {
     public static CustomerEntity toCustomerEntity(CustomerEntryDto customerEntryDto){
-        CustomerEntity customerEntity = getCustomerEntity(customerEntryDto);
+//        CustomerEntity customerEntity = getCustomerEntity(customerEntryDto);
+        CustomerEntity customerEntity = new CustomerEntity();
+        customerEntity.setName(customerEntryDto.getName());
+        customerEntity.setAddress(customerEntryDto.getAddress());
+        customerEntity.setMobile(customerEntryDto.getMobile());
+        customerEntity.setTitle(customerEntryDto.getTitle());
         return customerEntity;
     }
 
@@ -22,7 +28,14 @@ public class CustomerMapper {
 
     public static CustomerEntryDto toCustomerEntryDto(CustomerEntity customerEntity){
         CustomerEntryDto customerEntryDto = getCustomerEntryDto(customerEntity);
-
+        customerEntryDto.setId(customerEntity.getId());
+        customerEntryDto.setName(customerEntity.getName());
+        customerEntryDto.setAddress(customerEntity.getAddress());
+        customerEntryDto.setMobile(customerEntity.getMobile());
+        customerEntryDto.setTitle(customerEntity.getTitle());
+        customerEntryDto.setCityId(customerEntity.getCity().getCityId());
+        customerEntryDto.setAreaId(customerEntity.getArea().getAreaId());
+        customerEntryDto.setStateCode(customerEntity.getState().getCode());
         //here add ids and down there changes ids to names
         return customerEntryDto;
     }
@@ -37,5 +50,32 @@ public class CustomerMapper {
         customerEntryDto.setCityId(customerEntity.getCity().getCityId());
         customerEntryDto.setAreaId(customerEntity.getArea().getAreaId());
         return customerEntryDto;
+    }
+
+    public static CustomerResponseDto toCustomerResponseDto(CustomerEntity customerEntity)
+    {
+        CustomerResponseDto customerResponseDto = new CustomerResponseDto();
+        customerResponseDto.setId(customerEntity.getId());
+        customerResponseDto.setName(customerEntity.getName());
+        customerResponseDto.setTitle(customerEntity.getTitle());
+        customerResponseDto.setAddress(customerEntity.getAddress());
+        customerResponseDto.setMobile(customerEntity.getMobile());
+
+        customerResponseDto.setStateCode(customerEntity.getState().getCode());
+        customerResponseDto.setStateName(customerEntity.getState().getState());
+
+        customerResponseDto.setCityId(customerEntity.getCity().getCityId());
+        customerResponseDto.setCityName(customerEntity.getCity().getCityName());
+
+        customerResponseDto.setAreaId(customerEntity.getArea().getAreaId());
+        customerResponseDto.setAreaName(customerEntity.getArea().getArea());
+
+
+//        customerResponseDto.setStateName(customerEntity.getState() != null ? customerEntity.getState().getState() : null);
+//        customerResponseDto.setCityName(customerEntity.getCity() != null ? customerEntity.getCity().getCityName() : null);
+//        customerResponseDto.setAreaName(customerEntity.getArea() != null ? customerEntity.getArea().getArea() : null);
+
+        return customerResponseDto;
+
     }
 }

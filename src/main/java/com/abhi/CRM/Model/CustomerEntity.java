@@ -23,17 +23,17 @@ public class CustomerEntity {
     private String title;
 
 //    @Column(name = "state")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "State_id")
     private StateEntity state;
 
 //    @Column(name = "city")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "City_Id")
     private CityEntity city;
 
 //    @Column(name = "area")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "Area_Id")
     private AreaEntity area;
 
