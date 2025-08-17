@@ -85,26 +85,8 @@ public class CustomerService {
         return CustomerMapper.toCustomerResponseDto(savedCustomer);
 
     }
-
-    public List<CityDto> getAllCities(){
-        List<CityEntity> cities = cityRepo.findAllWithStateAndAreas();
-        return cities.stream().map(city -> {
-            CityDto cityDto  = new CityDto();
-            cityDto.setCityId(city.getCityId());
-            cityDto.setCityName(city.getCityName());
-            cityDto.setStateName(city.getState().getState());
-            List<String> areaNames = city.getAreaEntityList().stream()
-                    .map(AreaEntity::getArea)
-                    .collect(Collectors.toList());
-            cityDto.setAreaNames(areaNames);
-            return cityDto;
-        }).collect(Collectors.toList());
-    }
-
     public CustomerResponseDto getCustomerById(Integer id)
     {
-
-
         List<Object[]> result = customerRepo.getCustomerFullViewById(id);
         if(result.isEmpty())
         {
@@ -125,14 +107,22 @@ public class CustomerService {
         customerResponseDto.setAreaName((String) row[9]);
         customerResponseDto.setCityId((Integer) row[10]);
         customerResponseDto.setCityName((String) row[11]);
-//        customerResponseDto.setName((String) row[1]);
+        return customerResponseDto;
+    }
 
-
-//        CustomerEntity customer = customerRepo.findById(id)
-//                .orElseThrow(() -> new RuntimeException("Customer not found"));
-
-//        return CustomerMapper.toCustomerResponseDto(customer);
-            return customerResponseDto;
+    public List<CityDto> getAllCities(){
+        List<CityEntity> cities = cityRepo.findAllWithStateAndAreas();
+        return cities.stream().map(city -> {
+            CityDto cityDto  = new CityDto();
+            cityDto.setCityId(city.getCityId());
+            cityDto.setCityName(city.getCityName());
+            cityDto.setStateName(city.getState().getState());
+            List<String> areaNames = city.getAreaEntityList().stream()
+                    .map(AreaEntity::getArea)
+                    .collect(Collectors.toList());
+            cityDto.setAreaNames(areaNames);
+            return cityDto;
+        }).collect(Collectors.toList());
     }
 
 

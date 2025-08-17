@@ -10,7 +10,7 @@ public class AreaEntity {
     @Column(name = "Area_Name")
     private String area;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "city_id")
     private CityEntity city;
 

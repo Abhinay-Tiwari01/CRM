@@ -2,6 +2,7 @@ package com.abhi.CRM.Controller;
 
 import com.abhi.CRM.Dtos.CustomerDto.CustomerEntryDto;
 import com.abhi.CRM.Dtos.LocationDto.CityAreaDto;
+import com.abhi.CRM.Dtos.SupplierDto.SupplierEntryDto;
 import com.abhi.CRM.Model.AreaEntity;
 import com.abhi.CRM.Model.CityEntity;
 import com.abhi.CRM.Model.StateEntity;
@@ -9,6 +10,7 @@ import com.abhi.CRM.Repository.AreaRepo;
 import com.abhi.CRM.Repository.CityRepo;
 import com.abhi.CRM.Repository.StateRepo;
 import com.abhi.CRM.Services.CustomerService;
+import com.abhi.CRM.Services.SupplierServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,11 +24,15 @@ public class DashController {
     @Autowired
     CustomerService customerService;
     @Autowired
+    SupplierServices supplierServices;
+    @Autowired
     StateRepo stateRepo;
     @Autowired
     CityRepo cityRepo;
     @Autowired
     AreaRepo areaRepo;
+
+//    ===================================Customer And Supplier Entry===========================================
 
     @GetMapping(value ="/customerEntry" )//this will show the form when url hit
     public String showCustomerEntry(Model model)
@@ -42,6 +48,22 @@ public class DashController {
     public String customerEnt(@ModelAttribute CustomerEntryDto customerEntryDto){
         customerService.createCustomer(customerEntryDto);
         return "redirect:/customerEntry";
+    }
+
+    @GetMapping(value ="/supplierEntry" )//this will show the form when url hit
+    public String showSupplierEntry(Model model)
+    {
+        List<StateEntity> states = stateRepo.findAll();
+        model.addAttribute("state",states);//find all states From state entry
+        System.out.println(states);
+        model.addAttribute("supplier", new SupplierEntryDto());
+        return "supplierEntry";
+    }
+
+    @PostMapping(value = "/supplierEntry")// this will handle the submission after url hiting
+    public String supplierEnt(@ModelAttribute SupplierEntryDto supplierEntryDto){
+        supplierServices.createSupplier(supplierEntryDto);
+        return "redirect:/supplierEntry";
     }
 
 

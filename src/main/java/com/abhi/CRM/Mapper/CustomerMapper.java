@@ -15,19 +15,18 @@ public class CustomerMapper {
         return customerEntity;
     }
 
-    private static CustomerEntity getCustomerEntity(CustomerEntryDto customerEntryDto) {
-        CustomerEntity customerEntity = new CustomerEntity();
-        customerEntity.setName(customerEntryDto.getName());
-        customerEntity.setAddress(customerEntryDto.getAddress());
-        customerEntity.setMobile(customerEntryDto.getMobile());
-        customerEntity.setTitle(customerEntryDto.getTitle());
-
-
-        return customerEntity;
-    }
+//    private static CustomerEntity getCustomerEntity(CustomerEntryDto customerEntryDto) {
+//        CustomerEntity customerEntity = new CustomerEntity();
+//        customerEntity.setName(customerEntryDto.getName());
+//        customerEntity.setAddress(customerEntryDto.getAddress());
+//        customerEntity.setMobile(customerEntryDto.getMobile());
+//        customerEntity.setTitle(customerEntryDto.getTitle());
+//        return customerEntity;
+//    }
 
     public static CustomerEntryDto toCustomerEntryDto(CustomerEntity customerEntity){
-        CustomerEntryDto customerEntryDto = getCustomerEntryDto(customerEntity);
+//        CustomerEntryDto customerEntryDto = getCustomerEntryDto(customerEntity);
+        CustomerEntryDto customerEntryDto = new CustomerEntryDto();
         customerEntryDto.setId(customerEntity.getId());
         customerEntryDto.setName(customerEntity.getName());
         customerEntryDto.setAddress(customerEntity.getAddress());
@@ -40,17 +39,17 @@ public class CustomerMapper {
         return customerEntryDto;
     }
 
-    private static CustomerEntryDto getCustomerEntryDto(CustomerEntity customerEntity) {
-        CustomerEntryDto customerEntryDto = new CustomerEntryDto();
-        customerEntryDto.setName(customerEntity.getName());
-        customerEntryDto.setAddress(customerEntity.getAddress());
-        customerEntryDto.setMobile(customerEntity.getMobile());
-        customerEntryDto.setTitle(customerEntity.getTitle());
-        customerEntryDto.setStateCode(customerEntity.getCity().getState().getCode());
-        customerEntryDto.setCityId(customerEntity.getCity().getCityId());
-        customerEntryDto.setAreaId(customerEntity.getArea().getAreaId());
-        return customerEntryDto;
-    }
+//    private static CustomerEntryDto getCustomerEntryDto(CustomerEntity customerEntity) {
+//        CustomerEntryDto customerEntryDto = new CustomerEntryDto();
+//        customerEntryDto.setName(customerEntity.getName());
+//        customerEntryDto.setAddress(customerEntity.getAddress());
+//        customerEntryDto.setMobile(customerEntity.getMobile());
+//        customerEntryDto.setTitle(customerEntity.getTitle());
+//        customerEntryDto.setStateCode(customerEntity.getCity().getState().getCode());
+//        customerEntryDto.setCityId(customerEntity.getCity().getCityId());
+//        customerEntryDto.setAreaId(customerEntity.getArea().getAreaId());
+//        return customerEntryDto;
+//    }
 
     public static CustomerResponseDto toCustomerResponseDto(CustomerEntity customerEntity)
     {
@@ -69,11 +68,6 @@ public class CustomerMapper {
 
         customerResponseDto.setAreaId(customerEntity.getArea().getAreaId());
         customerResponseDto.setAreaName(customerEntity.getArea().getArea());
-
-
-//        customerResponseDto.setStateName(customerEntity.getState() != null ? customerEntity.getState().getState() : null);
-//        customerResponseDto.setCityName(customerEntity.getCity() != null ? customerEntity.getCity().getCityName() : null);
-//        customerResponseDto.setAreaName(customerEntity.getArea() != null ? customerEntity.getArea().getArea() : null);
 
         return customerResponseDto;
 

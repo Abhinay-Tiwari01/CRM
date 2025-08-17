@@ -12,7 +12,7 @@ public class CityEntity {
     @Column(name = "city_name")
     private String cityName;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "state_code")
     private StateEntity state;
 

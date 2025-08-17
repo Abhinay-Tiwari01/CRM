@@ -6,11 +6,15 @@
 
 .custom-dropdown.show {
   display: block;
+
 }
 
 .custom-dropdown li {
   cursor: pointer;
+  background-color : #c7c7c7;
+
 }
+
 
 .custom-dropdown li:hover {
   background-color: #f0f0f0;
