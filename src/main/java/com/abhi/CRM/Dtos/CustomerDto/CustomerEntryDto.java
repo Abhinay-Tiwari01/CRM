@@ -1,8 +1,6 @@
 package com.abhi.CRM.Dtos.CustomerDto;
 
 
-import com.abhi.CRM.Model.CityEntity;
-
 public class CustomerEntryDto {
 
     private  Integer id;

@@ -1,6 +1,6 @@
 package com.abhi.CRM.Repository;
 
-import com.abhi.CRM.Model.CustomerEntity;
+import com.abhi.CRM.Model.EntryEntites.CustomerEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 

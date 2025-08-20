@@ -2,7 +2,7 @@ package com.abhi.CRM.Mapper;
 
 import com.abhi.CRM.Dtos.SupplierDto.SupplierEntryDto;
 import com.abhi.CRM.Dtos.SupplierDto.SupplierResponseDto;
-import com.abhi.CRM.Model.SupplierEntity;
+import com.abhi.CRM.Model.EntryEntites.SupplierEntity;
 
 public class SupplierMapper
 {

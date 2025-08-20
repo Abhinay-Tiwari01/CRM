@@ -2,7 +2,7 @@ package com.abhi.CRM.Mapper;
 
 import com.abhi.CRM.Dtos.CustomerDto.CustomerEntryDto;
 import com.abhi.CRM.Dtos.CustomerDto.CustomerResponseDto;
-import com.abhi.CRM.Model.CustomerEntity;
+import com.abhi.CRM.Model.EntryEntites.CustomerEntity;
 
 public class CustomerMapper {
     public static CustomerEntity toCustomerEntity(CustomerEntryDto customerEntryDto){

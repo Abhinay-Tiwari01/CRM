@@ -2,9 +2,11 @@ package com.abhi.CRM.Services;
 
 import com.abhi.CRM.Dtos.SupplierDto.SupplierEntryDto;
 import com.abhi.CRM.Dtos.SupplierDto.SupplierResponseDto;
-import com.abhi.CRM.Mapper.CustomerMapper;
 import com.abhi.CRM.Mapper.SupplierMapper;
-import com.abhi.CRM.Model.*;
+import com.abhi.CRM.Model.EntryEntites.SupplierEntity;
+import com.abhi.CRM.Model.LocationEntites.AreaEntity;
+import com.abhi.CRM.Model.LocationEntites.CityEntity;
+import com.abhi.CRM.Model.LocationEntites.StateEntity;
 import com.abhi.CRM.Repository.AreaRepo;
 import com.abhi.CRM.Repository.CityRepo;
 import com.abhi.CRM.Repository.StateRepo;

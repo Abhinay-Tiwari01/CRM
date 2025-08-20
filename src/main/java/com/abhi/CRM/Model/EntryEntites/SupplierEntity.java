@@ -1,5 +1,8 @@
-package com.abhi.CRM.Model;
+package com.abhi.CRM.Model.EntryEntites;
 
+import com.abhi.CRM.Model.LocationEntites.AreaEntity;
+import com.abhi.CRM.Model.LocationEntites.CityEntity;
+import com.abhi.CRM.Model.LocationEntites.StateEntity;
 import jakarta.persistence.*;
 
 @Entity

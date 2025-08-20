@@ -1,4 +1,4 @@
-package com.abhi.CRM.Model;
+package com.abhi.CRM.Model.LocationEntites;
 import jakarta.persistence.*;
 
 import java.util.List;

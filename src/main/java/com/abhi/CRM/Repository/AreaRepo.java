@@ -1,6 +1,6 @@
 package com.abhi.CRM.Repository;
 
-import com.abhi.CRM.Model.AreaEntity;
+import com.abhi.CRM.Model.LocationEntites.AreaEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -3,9 +3,9 @@ package com.abhi.CRM.Controller;
 import com.abhi.CRM.Dtos.CustomerDto.CustomerEntryDto;
 import com.abhi.CRM.Dtos.LocationDto.CityAreaDto;
 import com.abhi.CRM.Dtos.SupplierDto.SupplierEntryDto;
-import com.abhi.CRM.Model.AreaEntity;
-import com.abhi.CRM.Model.CityEntity;
-import com.abhi.CRM.Model.StateEntity;
+import com.abhi.CRM.Model.LocationEntites.AreaEntity;
+import com.abhi.CRM.Model.LocationEntites.CityEntity;
+import com.abhi.CRM.Model.LocationEntites.StateEntity;
 import com.abhi.CRM.Repository.AreaRepo;
 import com.abhi.CRM.Repository.CityRepo;
 import com.abhi.CRM.Repository.StateRepo;
@@ -32,7 +32,7 @@ public class DashController {
     @Autowired
     AreaRepo areaRepo;
 
-//    ===================================Customer And Supplier Entry===========================================
+//    ===================================Customer And Supplier Entry and product entry===========================================
 
     @GetMapping(value ="/customerEntry" )//this will show the form when url hit
     public String showCustomerEntry(Model model)
@@ -65,6 +65,17 @@ public class DashController {
         supplierServices.createSupplier(supplierEntryDto);
         return "redirect:/supplierEntry";
     }
+
+    @GetMapping("/saveProduct")
+    public String showSavedProduct(){
+        return "productEntry";
+    }
+    @PostMapping("/saveProduct")
+    public String saveProduct()
+    {
+        return "redirect:/productEntry";
+    }
+
 
 
 

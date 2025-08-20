@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Product Entry</title>
+    <link rel="stylesheet" href="/productEntry.css">
+</head>
+
+<body>
+<div class="container">
+    <h2>Product Entry</h2>
+    <form th:action="@{/saveProduct}" method="post">
+        <div class="form-group">
+            <label for="productName">Product Name: *</label>
+            <input type="text" id="productName" name="productName" required>
+        </div>
+
+        <div class="form-group">
+            <label for="unit">Unit: *</label>
+            <div style="display:flex">
+                <select id="unit" name="unit" required>
+                    <option>---- Select Unit ----</option>
+                    <!-- Add options here -->
+                </select>
+                <button type="button" class="add-btn">+</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category: *</label>
+            <div style="display:flex">
+                <select id="category" name="category" required>
+                    <option>---- Select Category ----</option>
+                    <!-- Add options here -->
+                </select>
+                <button type="button" class="add-btn">+</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="saleGst">Sale GST: *</label>
+            <div style="display:flex">
+                <select id="saleGst" name="saleGst" required>
+                    <option>---- Select Sale Tax ----</option>
+                    <!-- Add options here -->
+                </select>
+                <button type="button" class="add-btn">+</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="mrp">M.R.P.: *</label>
+            <input type="text" id="mrp" name="mrp" required>
+        </div>
+
+        <div class="form-group">
+            <label for="purchaseRate">Purchase Rate: *</label>
+            <input type="text" id="purchaseRate" name="purchaseRate" required>
+        </div>
+
+        <div class="form-group">
+            <label for="hsnCode">HSN Code/SAQ Code: *</label>
+            <div style="display:flex">
+                <select id="hsnCode" name="hsnCode" required>
+                    <option>---- Select HSN ----</option>
+                    <!-- Add options here -->
+                </select>
+                <button type="button" class="add-btn">+</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="company">Company: *</label>
+            <div style="display:flex">
+                <select id="company" name="company" required>
+                    <option>---- Select Company ----</option>
+                    <!-- Add options here -->
+                </select>
+                <button type="button" class="add-btn">+</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="code">Code: *</label>
+            <div style="display:flex">
+                <input type="text" id="code" name="code" value="Auto Generated" readonly>
+                <label><input type="checkbox" name="autoGenerate" checked> Auto Generate</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="unit1">Unit1: *</label>
+            <select id="unit1" name="unit1" required>
+                <option>---- Select Unit ----</option>
+                <!-- Add options here -->
+            </select>
+            <input type="number" value="1" name="quantity">
+        </div>
+
+        <div class="form-group">
+            <label for="subCategory">Sub Category:</label>
+            <select id="subCategory" name="subCategory">
+                <option>---- Select Sub Category ----</option>
+                <!-- Add options here -->
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="purchaseGst">Purchase GST: *</label>
+            <div style="display:flex">
+                <select id="purchaseGst" name="purchaseGst" required>
+                    <option>---- Select Purchase Tax ----</option>
+                    <!-- Add options here -->
+                </select>
+                <button type="button" class="add-btn">+</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="discount">Discount(%):</label>
+            <input type="number" id="discount" name="discount">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <textarea id="description" name="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="productProperty">Product Property: *</label>
+            <select id="productProperty" name="productProperty" required>
+                <option>Regular</option>
+                <option>Variant</option>
+            </select>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="save-btn">Save</button>
+            <button type="submit" class="save-more-btn">Save and More</button>
+            <button type="button" class="cancel-btn">Cancel</button>
+        </div>
+    </form>
+</div>
+</body>
+
+</html>
